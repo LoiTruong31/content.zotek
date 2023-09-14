@@ -80,7 +80,7 @@ const Register = (props) => {
         {inputs.map((input) => (
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
         ))}
-        <h2>Bạn đã có tài khoản? <a href="">Login</a></h2> 
+        <h2>Bạn đã có tài khoản? <a href="/login">Login</a></h2> 
           <button>Submit</button>
         </form>
     </div>

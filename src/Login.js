@@ -23,8 +23,8 @@ const Login = () => {
         console.log(email, password);
         
         try {
-            const response = await axios.post("", {
-              email : email,
+            const response = await axios.post("http://192.168.137.1:8080/api/user/login", {
+              email_username : email,
               password : password,
             }).then((response )=> {
               console.log(response);
@@ -57,7 +57,7 @@ const Login = () => {
                 </Col>
                 <Col className='p-0' md={8}>
                     <Container className='justify-content-center align-items-center vh-100 d-flex bg-info' fluid>
-                        <Container className='bg-white border col-5'>
+                        <Container className='bg-white border col-6'>
                             <Form noValidate validated={validated} onSubmit={onSubmit} className='mt-4'>
                                 <Form.Group className='d-flex justify-content-center'>
                                     <Image src='https://zotek8.com/wp-content/uploads/2023/07/Zotek8_logo_no-slogan_1-1024x1024.png' className='w-50 h-50'/>
@@ -87,9 +87,8 @@ const Login = () => {
                                             <Form.Check type='checkbox' label='Remember me'/>
                                         </Col>
                                         <Col md={7}>
-                                            <Form.Label>Chưa có tài khoản <a href='#'>Sign Up</a></Form.Label>
+                                            <Form.Label>Chưa có tài khoản <a href='/register'>Sign Up</a></Form.Label>
                                         </Col>
-                                        
                                     </Row>
                                 </Form.Group>
                                 <div className='d-grid mb-3'>

@@ -1,16 +1,19 @@
-import Login from "./component/Login";
-import TimeSheet from "./component/TimeSheet";
+import Login from "./Login";
+import TimeSheet from "./components/TimeSheet";
 import './App.css';
-import Register from './Register';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./Register";
 
 
 function App() {
   
   return (
-
-    <div className="">
-        <Register/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="register" element={<Register/>}></Route>
+        <Route path="login" element={<Login />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
