@@ -13,7 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [validated, setValidated] = useState(false);
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
             e.preventDefault();
@@ -21,20 +21,43 @@ const Login = () => {
         }
         setValidated(true);
         console.log(email, password);
+        
+        try {
+            const response = await axios.post("", {
+              email : email,
+              password : password,
+            }).then((response )=> {
+              console.log(response);
+              if (response.data.login === true) {
+                const data = response.data;
+        
+                // Lưu token vào local storage
+                localStorage.setItem("token", data.access_token);
+      
+                console.log(localStorage.getItem("token"));
+                // Chuyển hướng đến trang chủ
+                window.location.href = "/";
+              } else {
+                alert(response.data.message);
+              }
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
         <>
         <Container fluid>
             <Row className='100-w'>
-                <Col className='p-0'>
+                <Col className='p-0' md={4}>
                     <Container className='align-items-center vh-100 d-flex justify-content-center'>
                         <h1>Welcome!</h1>
                     </Container>
                 </Col>
-                <Col className='p-0'>
+                <Col className='p-0' md={8}>
                     <Container className='justify-content-center align-items-center vh-100 d-flex bg-info' fluid>
-                        <Container className='bg-white border col-6'>
+                        <Container className='bg-white border col-5'>
                             <Form noValidate validated={validated} onSubmit={onSubmit} className='mt-4'>
                                 <Form.Group className='d-flex justify-content-center'>
                                     <Image src='https://zotek8.com/wp-content/uploads/2023/07/Zotek8_logo_no-slogan_1-1024x1024.png' className='w-50 h-50'/>
