@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
 import axios from 'axios';
 
@@ -19,9 +18,11 @@ const Login = () => {
         }
         setValidated(true);
         console.log(email, password);
-        
-        try {
-            const response = await axios.post("http://192.168.137.1:8080/api/user/login", {
+    }
+
+    useEffect(() => {
+        if (validated){
+            axios.post("http://192.168.137.1:8080/api/user/login", {
               email_username : email,
               password : password,
             }).then((response)=> {
@@ -38,16 +39,16 @@ const Login = () => {
               } else {
                 alert(response.data.message);
               }
-            });
-        } catch (error) {
+            }).catch ((error) => {
             console.log(error);
+        });
         }
-    }
+    }, [email, password]);   
 
     return (
         <>
         <Container fluid className='bg-info'>
-            <Container className='justify-content-center align-items-center col-lg-4 vh-100 d-flex ' fluid>
+            <Container className='align-items-center col-lg-4 vh-100 d-flex ' fluid>
                 <Container className='bg-white border-box col-xs-4' fluid>
                     <Form noValidate validated={validated} onSubmit={onSubmit} className='mt-4'>
                         <Form.Group className='d-flex justify-content-center'>
