@@ -1,5 +1,5 @@
 import Login from "./Login";
-import TimeSheet from "./components/TimeSheet";
+import TimeSheet from "./TimeSheet";
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./Register";

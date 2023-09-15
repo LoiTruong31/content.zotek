@@ -49,56 +49,47 @@ const Login = () => {
     return (
         <>
         <Container fluid>
-            <Row className='100-w'>
-                <Col className='p-0' md={4}>
-                    <Container className='align-items-center vh-100 d-flex justify-content-center'>
-                        <h1>Welcome!</h1>
-                    </Container>
-                </Col>
-                <Col className='p-0' md={8}>
-                    <Container className='justify-content-center align-items-center vh-100 d-flex bg-info' fluid>
-                        <Container className='bg-white border col-6'>
-                            <Form noValidate validated={validated} onSubmit={onSubmit} className='mt-4'>
-                                <Form.Group className='d-flex justify-content-center'>
-                                    <Image src='https://zotek8.com/wp-content/uploads/2023/07/Zotek8_logo_no-slogan_1-1024x1024.png' className='w-50 h-50'/>
-                                </Form.Group>
-                                <Form.Group className='mb-4' controlId='formGroupEmail'>
-                                    <Form.Label className=''>Email:</Form.Label>
-                                    <Form.Control required type='email' placeholder='Enter your email' 
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <Form.Control.Feedback type='invalid'>
-                                        Email không hợp lệ.
-                                    </Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group className='mb-4' controlId='formGroupPassword'>
-                                    <Form.Label className=''>Password:</Form.Label>
-                                    <Form.Control required type='password' placeholder='Enter your password' 
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)} />
-                                    <Form.Control.Feedback type='invalid'>
-                                        Nhập password.
-                                    </Form.Control.Feedback>
-                                </Form.Group>
-                                <Form.Group className='mb-3'>
-                                    <Row>
-                                        <Col md={5}>
-                                            <Form.Check type='checkbox' label='Remember me'/>
-                                        </Col>
-                                        <Col md={7}>
-                                            <Form.Label>Chưa có tài khoản <a href='/register'>Sign Up</a></Form.Label>
-                                        </Col>
-                                    </Row>
-                                </Form.Group>
-                                <div className='d-grid mb-3'>
-                                <Button type='submit' variant='success'>Login</Button>
-                                </div>
-                            </Form>
-                        </Container>
-                    </Container>
-                </Col>
-            </Row>
+            <Container className='justify-content-center align-items-center w-100 vh-100 d-flex bg-info' fluid>
+                <Container className='bg-white border 50-w col-sm-4'>
+                    <Form noValidate validated={validated} onSubmit={onSubmit} className='mt-4'>
+                        <Form.Group className='d-flex justify-content-center'>
+                            <Image src='https://zotek8.com/wp-content/uploads/2023/07/Zotek8_logo_no-slogan_1-1024x1024.png' className='w-50 h-50'/>
+                        </Form.Group>
+                        <Form.Group className='mb-4' controlId='formGroupEmail'>
+                            <Form.Label className=''>Email:</Form.Label>
+                            <Form.Control required type='email' placeholder='Enter your email' 
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <Form.Control.Feedback type='invalid'>
+                                Email không hợp lệ.
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group className='mb-4' controlId='formGroupPassword'>
+                            <Form.Label className=''>Password:</Form.Label>
+                            <Form.Control required type='password' placeholder='Enter your password' 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
+                            <Form.Control.Feedback type='invalid'>
+                                Nhập password.
+                            </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <Row>
+                                <Col md={5}>
+                                    <Form.Check type='checkbox' label='Remember me'/>
+                                </Col>
+                                <Col md={7}>
+                                    <Form.Label>Chưa có tài khoản <a href='/register'>Sign Up</a></Form.Label>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <div className='d-grid mb-3'>
+                        <Button type='submit' variant='success'>Login</Button>
+                        </div>
+                    </Form>
+                </Container>
+            </Container>
         </Container>
         </>
     );
