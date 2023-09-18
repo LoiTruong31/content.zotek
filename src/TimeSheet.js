@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Button, ButtonGroup, Form } from 'react-bootstrap';
 
 const TimeSheet = () => {
     return (
@@ -102,8 +103,49 @@ const TimeSheet = () => {
                                 <Container fluid className='bg-dark text-white h-auto'>
                                     <p className='text-start m-2'>My timesheet</p>                               
                                 </Container>
-                                <Container className='bg-white'>
-                                    <p>setting timesheet</p>
+                                <Container className='bg-white border borer-2 mb-3'>
+                                    <Form className='p-0 d-flex-col'>
+                                        <Row className='mt-4'>
+                                            <Col>
+                                                <Form.Group>
+                                                    <Form.Label className="label">Choose from list:</Form.Label>
+                                                    <Form.Check type='radio' name='group1' inline></Form.Check>
+                                                    <Form.Select className="select" size="sm">
+                                                        <option value={1} active>This month</option>
+                                                        <option value={2}>Last month</option>
+                                                    </Form.Select>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col>
+                                                <Form.Group id='sort-date'>
+                                                    <Form.Label className="label">Sort by work date:</Form.Label>
+                                                    <Form.Select size='sm' className='select'>
+                                                        <option value={1} active>Ascending</option>
+                                                        <option value={2}>Descending</option>
+                                                    </Form.Select>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        <Form.Group>
+                                            <Form.Label className='label'>Choose start, end:</Form.Label>
+                                            <Form.Check type='radio' name='group1' inline></Form.Check><br/>
+                                            <Form.Group className='d-flex mb-3'>
+                                                <Form.Label class="from-to">From:</Form.Label>
+                                                <Form.Control type='date' size='sm' className="date"/>
+                                            </Form.Group>
+                                            <Form.Group className='d-flex'>
+                                                <Form.Label class="from-to">To:</Form.Label>
+                                                <Form.Control type='date' className="date" size='sm'/>
+                                            </Form.Group>
+                                        </Form.Group>
+                                        <Container className='d-flex justify-content-center'>
+                                            <ButtonGroup>
+                                                <Button className='button1'>Search</Button>
+                                                <Button className='button1'>Reset</Button>
+                                            </ButtonGroup>
+                                        </Container>
+                                        
+                                    </Form>
                                 </Container>
                             </Row>
                             <Row>
