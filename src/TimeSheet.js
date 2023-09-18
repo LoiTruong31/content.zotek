@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button, ButtonGroup, Form } from 'react-bootstrap';
+import { Button, ButtonGroup, Form, Table } from 'react-bootstrap';
 
 const TimeSheet = () => {
     return (
@@ -97,7 +97,7 @@ const TimeSheet = () => {
                             </Row>
                         </Container>
                     </Col>
-                    <Col xs={10} className='bg-warning'>
+                    <Col xs={10} className=''>
                         <Container className='p-0'>
                             <Row className='bg-white'>
                                 <Container fluid className='bg-dark text-white h-auto'>
@@ -144,12 +144,32 @@ const TimeSheet = () => {
                                                 <Button className='button1'>Reset</Button>
                                             </ButtonGroup>
                                         </Container>
-                                        
                                     </Form>
                                 </Container>
                             </Row>
                             <Row>
-                                hello
+                                <label className='mb-4'>Total number of records:</label>
+                                <Table bordered size='sm'>
+                                    <thead >
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Date</th>
+                                            <th>Checkin</th>
+                                            <th>Checkout</th>
+                                            <th>Late</th>
+                                            <th>Early</th>
+                                            <th>In office</th>
+                                            <th>OT</th>
+                                            <th>Work time</th>
+                                            <th>Lack</th>
+                                            <th>Comp</th>
+                                            <th>PLeave</th>
+                                            <th>ULeave</th>
+                                            <th>Admin note</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                </Table>
                             </Row>
                         </Container>
                     </Col>
